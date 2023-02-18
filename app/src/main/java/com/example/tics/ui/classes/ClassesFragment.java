@@ -1,4 +1,4 @@
-package com.example.tics.ui.slideshow;
+package com.example.tics.ui.classes;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.tics.databinding.FragmentSlideshowBinding;
+import com.example.tics.databinding.FragmentClassesBinding;
 
-public class SlideshowFragment extends Fragment {
+public class ClassesFragment extends Fragment {
 
-    private FragmentSlideshowBinding binding;
+    private FragmentClassesBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        SlideshowViewModel slideshowViewModel =
-                new ViewModelProvider(this).get(SlideshowViewModel.class);
+        ClassesViewModel classesViewModel =
+                new ViewModelProvider(this).get(ClassesViewModel.class);
 
-        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
+        binding = FragmentClassesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textSlideshow;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textClasses;
+        classesViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

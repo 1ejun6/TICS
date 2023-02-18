@@ -3,23 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_classes">
+    <fragment
+        android:id="@+id/nav_classes"
+        android:name="com.example.tics.ui.classes.ClassesFragment"
+        android:label="@string/menu_classes"
+        tools:layout="@layout/fragment_classes" />
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.tics.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/nav_students"
+        android:name="com.example.tics.ui.students.StudentsFragment"
+        android:label="@string/menu_students"
+        tools:layout="@layout/fragment_students" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.tics.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_medicalhistory"
+        android:name="com.example.tics.ui.medicalhistory.MedicalHistoryFragment"
+        android:label="@string/menu_medicalhistory"
+        tools:layout="@layout/fragment_medicalhistory" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.tics.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_game"
+        android:name="com.example.tics.ui.game.GameFragment"
+        android:label="@string/menu_game"
+        tools:layout="@layout/fragment_game" />
 </navigation>
