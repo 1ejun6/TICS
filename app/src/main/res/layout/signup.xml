@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUp">
+
+    <EditText
+        android:id="@+id/SignUp_Name"
+        android:layout_width="356dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView_Bubble"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="69dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="10dp"
+        android:background="#50ffffff"
+        android:hint="Username"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black" />
+
+    <EditText
+        android:id="@+id/SignUp_Password"
+        android:layout_width="341dp"
+        android:layout_height="67dp"
+        android:layout_below="@+id/SignUp_Name"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="24dp"
+        android:background="#50ffffff"
+        android:hint="Password"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black" />
+
+    <TextView
+        android:id="@+id/error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/error_while_logging_in"
+        android:textColor="#F44336"
+        android:layout_below="@id/SignUp_Password"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/imageView_Bubble"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-4dp"
+        android:layout_marginTop="-5dp"
+        android:src="@drawable/bubble" />
+
+    <ImageButton
+        android:id="@+id/SignUp_SignUp"
+        android:layout_width="333dp"
+        android:layout_height="94dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/signup" />
+
+    <TextView
+        android:id="@+id/textView_SignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView_Bubble"
+        android:layout_alignEnd="@+id/SignUp_Name"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="247dp"
+        android:text="Sign In"
+        android:textColor="#575757"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="255dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/SignUp_Password"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="74dp"
+        android:text="You'll be able to set-up your profile After you Sign Up"
+        android:textAlignment="center"
+        android:textSize="14sp" />
+
+</RelativeLayout>

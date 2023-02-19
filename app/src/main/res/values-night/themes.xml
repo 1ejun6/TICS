@@ -6,13 +6,12 @@
         <item name="colorPrimaryVariant">@color/blue</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/darkblue</item>
+        <item name="colorSecondary">@color/darkblue</item>z
         <item name="colorSecondaryVariant">@color/darkblue</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/black</item>
         <!-- Customize your theme here. -->
         <item name="android:fontFamily">@font/montserrat</item>
-        <item name="android:font">@font/montserrat</item>
     </style>
 </resources>

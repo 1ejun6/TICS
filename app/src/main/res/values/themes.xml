@@ -1,6 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.TICS" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.TICS" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/blue</item>
         <item name="colorPrimaryVariant">@color/black</item>
@@ -13,18 +14,25 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <item name="android:fontFamily">@font/montserrat</item>
-        <item name="android:font">@font/montserrat</item>
+    </style>
+
+    <style name="NavigationMenuItemStyle" parent="@android:style/TextAppearance.Widget.TextView">
+        <item name="android:fontFamily">@font/montserrat</item>
     </style>
 
     <style name="Theme.TICS.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-    <style name="NavigationMenuItemStyle" parent="@android:style/TextAppearance.Widget.TextView">
-        <item name="android:fontFamily">@font/montserrat</item>
+    <!-- Style for the Toolbar -->
+    <style name="Theme.TICS.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:background">@color/blue</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="Theme.TICS.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <!-- Style for the AppBarOverlay -->
+    <style name="Theme.TICS.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.ActionBar" />
 
-    <style name="Theme.TICS.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <!-- Style for the PopupOverlay -->
+    <style name="Theme.TICS.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
 </resources>

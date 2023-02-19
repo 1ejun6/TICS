@@ -10,4 +10,8 @@
     <string name="menu_students">Students</string>
     <string name="menu_medicalhistory">Medical History</string>
     <string name="menu_game">Game</string>
+    <string name="menu_logout">Log out</string>
+
+    <string name="error_while_logging_in">Error while logging in</string>
+
 </resources>
