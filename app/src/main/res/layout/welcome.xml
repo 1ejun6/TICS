@@ -37,8 +37,8 @@
         android:id="@+id/imageView_Bubble"
         android:layout_width="399dp"
         android:layout_height="368dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="84dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="124dp"
         app:layout_constraintBottom_toTopOf="@+id/SignIn_SignIn"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/bubble" />
