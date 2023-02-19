@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue">
+
+    <Button
+        android:id="@+id/Profile_Picture_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Profile_Picture"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="120dp"
+        android:text="Select Picture" />
+
+    <ImageView
+        android:id="@+id/Profile_Picture"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="131dp"
+        android:background="@drawable/camerabackground"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/Profile_Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Profile_Picture_Button"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="43dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="10dp"
+        android:background="#00FFFFFF"
+        android:hint="name"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/Profile_Email"
+        android:layout_width="314dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Profile_Name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/transparent"
+        android:hint="email"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+    <ImageButton
+        android:id="@+id/Profile_Complete"
+        android:layout_width="319dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="39dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="14dp"
+        android:background="#00FFFFFF"
+        android:src="@drawable/complete" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/Profile_Class"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Profile_Complete"
+        android:layout_below="@+id/Profile_Email"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="97dp"
+        android:layout_marginBottom="37dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="@color/white"
+        app:boxStrokeWidthFocused="2dp"
+        app:endIconTint="@color/white">
+
+        <AutoCompleteTextView
+            android:id="@+id/Profile_ClassInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:dropDownSelector="@color/white"
+            android:hint="Select Class"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="18sp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+</RelativeLayout>

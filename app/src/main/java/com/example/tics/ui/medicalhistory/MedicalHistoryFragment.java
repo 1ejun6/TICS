@@ -18,8 +18,8 @@ public class MedicalHistoryFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        MedicalHistoryModel medicalHistoryModel =
-                new ViewModelProvider(this).get(MedicalHistoryModel.class);
+        MedicalHistoryViewModel medicalHistoryModel =
+                new ViewModelProvider(this).get(MedicalHistoryViewModel.class);
 
         binding = FragmentMedicalhistoryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

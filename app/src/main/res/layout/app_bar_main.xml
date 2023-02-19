@@ -31,7 +31,6 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/white"
         app:layout_anchor="@+id/appBarLayout"
-        app:layout_anchorGravity="center"
-        app:popupTheme="@style/Theme.TICS.PopupOverlay" />
+        app:layout_anchorGravity="center" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -6,6 +6,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_profile">Profile</string>
 
+    <string name="menu_profile">Profile</string>
     <string name="menu_classes">Classes</string>
     <string name="menu_students">Students</string>
     <string name="menu_medicalhistory">Medical History</string>

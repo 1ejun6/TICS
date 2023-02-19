@@ -7,6 +7,10 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/profile"
+            android:title="@string/menu_profile" />
+        <item
             android:id="@+id/nav_classes"
             android:icon="@drawable/classes"
             android:title="@string/menu_classes" />
@@ -24,7 +28,16 @@
             android:title="@string/menu_game" />
         <item
             android:title=" " />
-
+        <item
+            android:title=" " />
+        <item
+            android:title=" " />
+        <item
+            android:title=" " />
+        <item
+            android:title=" " />
+        <item
+            android:title=" " />
         <item
             android:id="@+id/nav_signout"
             android:icon="@drawable/logout"

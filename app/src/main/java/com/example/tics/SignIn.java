@@ -70,18 +70,32 @@ public class SignIn extends AppCompatActivity {
                                     JSONObject jsonObject = new JSONObject(response);
                                     String status = jsonObject.getString("status");
                                     String message = jsonObject.getString("message");
-                                    username = jsonObject.getString("TeacherName");
-                                    apikey = jsonObject.getString("apikey");
-                                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                                    editor.putString("logged", "true");
-                                    editor.putString("TeacherName", username);
-                                    editor.putString("apikey", apikey);
-                                    editor.apply();
-                                    Intent senderIntent = new Intent(getApplicationContext(), MainActivity.class);
-                                    senderIntent.putExtra("username", username);
-                                    startActivity(senderIntent);
-                                    finish();
-
+                                    if (status.equals("success")) {
+                                        username = jsonObject.getString("TeacherName");
+                                        apikey = jsonObject.getString("apikey");
+                                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                                        editor.putString("logged", "true");
+                                        editor.putString("TeacherName", username);
+                                        editor.putString("apikey", apikey);
+                                        editor.apply();
+                                        Intent senderIntent= new Intent(getApplicationContext(), Profile.class);
+                                        senderIntent.putExtra("username",username);
+                                        startActivity(senderIntent);
+                                        finish();
+                                    }
+                                    else if (status.equals("relogin")) {
+                                        username = jsonObject.getString("TeacherName");
+                                        apikey = jsonObject.getString("apikey");
+                                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                                        editor.putString("logged", "true");
+                                        editor.putString("TeacherName", username);
+                                        editor.putString("apikey", apikey);
+                                        editor.apply();
+                                        Intent senderIntent= new Intent(getApplicationContext(), MainActivity.class);
+                                        senderIntent.putExtra("username",username);
+                                        startActivity(senderIntent);
+                                        finish();
+                                    }
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }

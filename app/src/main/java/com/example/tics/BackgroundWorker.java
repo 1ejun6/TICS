@@ -30,7 +30,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
         String username = params[2];
         String password = params[3];
         String mail = params[4];
-        String classID =params[5];
+        String classID = params[5];
         try {
 
             URL url = new URL(login_url);

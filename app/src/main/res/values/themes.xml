@@ -33,6 +33,4 @@
     <!-- Style for the AppBarOverlay -->
     <style name="Theme.TICS.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.ActionBar" />
 
-    <!-- Style for the PopupOverlay -->
-    <style name="Theme.TICS.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
 </resources>
