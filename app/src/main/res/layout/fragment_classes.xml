@@ -6,17 +6,80 @@
     android:layout_height="match_parent"
     tools:context=".ui.classes.ClassesFragment">
 
-    <TextView
-        android:id="@+id/text_classes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
+    <ImageView
+        android:id="@+id/imageView_HomeBackground"
+        android:layout_width="395dp"
+        android:layout_height="360dp"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="408dp"
+        android:src="@drawable/homebackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_Greeting"
+        android:layout_width="220dp"
+        android:layout_height="83dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="84dp"
+        android:text="Good morning, Teacher!"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.275"
+        app:layout_constraintStart_toStartOf="@+id/imageView_HomeBackground"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Please select a Class then select a Student"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_Greeting" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/Class_card"
+        android:layout_width="352dp"
+        android:layout_height="512dp"
+        android:layout_marginBottom="4dp"
+        android:background="@color/white"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Class_Dropdown_Layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="292dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:boxStrokeColor="@color/black"
+            app:boxStrokeWidthFocused="2dp"
+            app:endIconTint="@color/black">
+
+            <AutoCompleteTextView
+                android:id="@+id/Class_Dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@color/transparent"
+                android:dropDownSelector="@color/black"
+                android:hint="Select Class"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

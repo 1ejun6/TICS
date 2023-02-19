@@ -2,12 +2,12 @@ package com.example.tics;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +42,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
+        navigationView.setNavigationItemSelectedListener(this);
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_classes, R.id.nav_students, R.id.nav_medicalhistory, R.id.nav_game, R.id.nav_profile)
+                R.id.nav_profile, R.id.nav_classes, R.id.nav_students, R.id.nav_medicalhistory, R.id.nav_game)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -57,7 +60,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.nav_signout) {
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+
+        if (id == R.id.nav_classes) {
+            navController.navigate(R.id.nav_classes);
+        } else if (id == R.id.nav_students) {
+            navController.navigate(R.id.nav_students);
+        } else if (id == R.id.nav_medicalhistory) {
+            navController.navigate(R.id.nav_medicalhistory);
+        } else if (id == R.id.nav_game) {
+            navController.navigate(R.id.nav_game);
+        } else if (id == R.id.nav_profile) {
+            navController.navigate(R.id.nav_profile);
+        } else if (id == R.id.nav_signout) {
             // log the user out
             // ...
 
@@ -67,11 +82,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             finish(); // close the MainActivity
             return true;
         }
-        else{
-            // Do nothing
-        }
-        return false;
+
+        DrawerLayout drawer = binding.drawerLayout;
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
+
 
     @Override
     public boolean onSupportNavigateUp() {
