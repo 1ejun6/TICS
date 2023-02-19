@@ -13,7 +13,7 @@ public class Success extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.success);
-        button =(ImageButton) findViewById(R.id.welcomesignin);
+        button =(ImageButton) findViewById(R.id.Success_SignIn);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
