@@ -50,15 +50,7 @@
         android:textColor="@color/black"
         android:textColorHint="@color/black" />
 
-    <TextView
-        android:id="@+id/error"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/error_while_logging_in"
-        android:textColor="#F44336"
-        android:layout_below="@id/SignIn_Password"
-        android:layout_centerHorizontal="true"
-        android:visibility="gone" />
+
 
     <ImageView
         android:id="@+id/imageView_Bubble"
@@ -92,11 +84,24 @@
         android:textColor="#575757"
         android:textSize="20sp" />
 
+    <TextView
+        android:id="@+id/error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/SignIn_Password"
+        android:layout_centerHorizontal="true"
+        android:text="@string/error_while_logging_in"
+        android:textColor="#F44336"
+        android:visibility="gone" />
+
     <ProgressBar
         android:id="@+id/loading"
-        android:layout_marginBottom="20dp"
-        android:visibility="gone"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView_Bubble"
+        android:layout_alignRight="@id/imageView_Bubble"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:visibility="gone" />
 
 </RelativeLayout>

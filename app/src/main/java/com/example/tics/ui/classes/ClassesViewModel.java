@@ -75,7 +75,7 @@ public class ClassesViewModel extends AndroidViewModel {
                                 JSONObject obj = jsonArray.getJSONObject(i);
                                 String StudentName = obj.getString("StudentName");
                                 int StudentID = obj.getInt("StudentID");
-                                studentsList.add(StudentID + "         " + StudentName);
+                                studentsList.add(StudentID + "    " + StudentName);
                             }
                             callback.onResult(studentsList);
                         } catch (JSONException e) {

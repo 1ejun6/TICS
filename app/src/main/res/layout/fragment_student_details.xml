@@ -6,6 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/imageView_HomeBackground"
+        android:layout_width="395dp"
+        android:layout_height="360dp"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="448dp"
+        android:src="@drawable/homebackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/Student_StudentID"
         android:layout_width="159dp"
