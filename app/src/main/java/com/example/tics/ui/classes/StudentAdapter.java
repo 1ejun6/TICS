@@ -53,12 +53,11 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String studentId = studentList.get(holder.getAdapterPosition()).split("\\s+")[0];
+                String studentId = student.split("\\s+")[0];
                 clickListener.onItemClick(studentId);
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return studentList.size();

@@ -1,6 +1,7 @@
 package com.example.tics.ui.classes;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -92,6 +93,7 @@ public class ClassesViewModel extends AndroidViewModel {
 
     public void getStudentDetails(int StudentID, Callback<Student> callback) {
         RequestQueue queue = Volley.newRequestQueue(getApplication());
+        Log.d("URLStudentID", String.valueOf(StudentID));
         String url = "http://192.168.1.14/studentdetails.php?StudentID=" + StudentID;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {

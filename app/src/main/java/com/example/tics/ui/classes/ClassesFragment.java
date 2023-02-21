@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -49,7 +50,7 @@ public class ClassesFragment extends Fragment {
                         studentAdapter = new StudentAdapter(getContext(), students, studentId -> {
                             Bundle bundle = new Bundle();
                             bundle.putString("studentId", studentId);
-                            Navigation.findNavController(requireView()).navigate(R.id.nav_studentdetails, bundle);
+                            NavHostFragment.findNavController(this).navigate(R.id.nav_studentdetails, bundle);
                         });
                         studentRecyclerView.setAdapter(studentAdapter);
                     });
