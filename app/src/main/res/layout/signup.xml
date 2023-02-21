@@ -69,14 +69,14 @@
         android:background="@drawable/signup" />
 
     <TextView
-        android:id="@+id/textView_SignIn"
+        android:id="@+id/textView_SignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView_Bubble"
         android:layout_alignEnd="@+id/SignUp_Name"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="247dp"
-        android:text="Sign In"
+        android:text="Sign Up"
         android:textColor="#575757"
         android:textSize="20sp" />
 

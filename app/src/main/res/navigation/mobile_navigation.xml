@@ -4,16 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/nav_classes">
+
     <fragment
         android:id="@+id/nav_profile"
         android:name="com.example.tics.ui.profile.ProfileFragment"
         android:label="@string/menu_profile"
         tools:layout="@layout/fragment_profile" />
+
     <fragment
         android:id="@+id/nav_classes"
         android:name="com.example.tics.ui.classes.ClassesFragment"
         android:label="@string/menu_classes"
-        tools:layout="@layout/fragment_classes" />
+        tools:layout="@layout/fragment_classes" >
+        <action
+            android:id="@+id/action_nav_classes_to_studentDetailsFragment"
+            app:destination="@id/nav_studentdetails" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_students"
@@ -32,4 +38,16 @@
         android:name="com.example.tics.ui.game.GameFragment"
         android:label="@string/menu_game"
         tools:layout="@layout/fragment_game" />
+
+    <fragment
+        android:id="@+id/nav_studentdetails"
+        android:name="com.example.tics.ui.classes.StudentDetailsFragment"
+        android:label="@string/menu_studentdetails"
+        tools:layout="@layout/fragment_student_details" >
+        <action
+            android:id="@+id/action_nav_studentdetails_to_nav_classes"
+            app:destination="@id/nav_classes"/>
+    </fragment>
+
+
 </navigation>

@@ -67,6 +67,5 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Welcome" />
         </activity>
-
     </application>
 </manifest>

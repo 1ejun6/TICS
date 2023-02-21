@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white_lightgray"
     tools:context=".ui.classes.ClassesFragment">
 
     <ImageView
@@ -11,7 +12,7 @@
         android:layout_width="395dp"
         android:layout_height="360dp"
         android:layout_centerInParent="true"
-        android:layout_marginBottom="408dp"
+        android:layout_marginBottom="448dp"
         android:src="@drawable/homebackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,9 +21,9 @@
     <TextView
         android:id="@+id/textView_Greeting"
         android:layout_width="220dp"
-        android:layout_height="83dp"
+        android:layout_height="69dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="36dp"
         android:text="Good morning, Teacher!"
         android:textColor="@color/white"
         android:textSize="28sp"
@@ -35,51 +36,55 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:text="Please select a Class then select a Student"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_Greeting" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/Class_card"
-        android:layout_width="352dp"
-        android:layout_height="512dp"
-        android:layout_marginBottom="4dp"
-        android:background="@color/white"
-        app:cardCornerRadius="24dp"
-        app:cardElevation="8dp"
-        app:cardUseCompatPadding="true"
+    <LinearLayout
+        android:id="@+id/class_selection_layout"
+        android:layout_width="345dp"
+        android:layout_height="518dp"
+        android:background="@drawable/whitebackground"
+        android:orientation="vertical"
+        android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView5"
+        app:layout_constraintVertical_bias="0.195">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/Class_Dropdown_Layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="292dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            app:boxStrokeColor="@color/black"
+            android:textColor="@color/gray"
+            android:textColorHint="@color/gray"
+            app:boxStrokeColor="@color/gray"
             app:boxStrokeWidthFocused="2dp"
-            app:endIconTint="@color/black">
+            app:endIconTint="@color/gray">
 
             <AutoCompleteTextView
-                android:id="@+id/Class_Dropdown"
+                android:id="@+id/ClassDropdown"
                 android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:background="@color/transparent"
-                android:dropDownSelector="@color/black"
+                android:layout_height="wrap_content"
                 android:hint="Select Class"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
+                android:inputType="none"
+                android:textColor="@color/gray"
                 android:textSize="18sp" />
+
         </com.google.android.material.textfield.TextInputLayout>
 
-    </androidx.cardview.widget.CardView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/StudentRecyclerView"
+            android:layout_width="311dp"
+            android:layout_height="390dp"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
