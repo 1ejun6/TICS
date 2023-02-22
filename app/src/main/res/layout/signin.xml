@@ -90,6 +90,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/SignIn_Password"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
         android:text="@string/error_while_logging_in"
         android:textColor="#F44336"
         android:visibility="gone" />

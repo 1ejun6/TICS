@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -60,53 +59,74 @@ public class SignIn extends AppCompatActivity {
                 progressBar.setVisibility(View.VISIBLE);
                 username = String.valueOf(editTextUsername.getText());
                 password = String.valueOf(editTextPassword.getText());
-                RequestQueue queue = Volley.newRequestQueue(SignIn.this);
-                String url = "https://example.com/api/signin";
-                StringRequest request = new StringRequest(Request.Method.POST, url,
+                RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+                String url = "http://192.168.1.14/signin.php";
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
+                                progressBar.setVisibility(View.GONE);
                                 try {
                                     JSONObject jsonObject = new JSONObject(response);
-                                    if (jsonObject.getBoolean("success")) {
+                                    String status = jsonObject.getString("status");
+                                    String message = jsonObject.getString("message");
+                                    if (status.equals("success")) {
+                                        username = jsonObject.getString("TeacherName");
                                         apikey = jsonObject.getString("apikey");
                                         SharedPreferences.Editor editor = sharedPreferences.edit();
+                                        editor.putString("logged", "true");
+                                        editor.putString("TeacherName", username);
                                         editor.putString("apikey", apikey);
                                         editor.apply();
-                                        startActivity(new Intent(SignIn.this, MainActivity.class));
+                                        Intent senderIntent= new Intent(getApplicationContext(), Profile.class);
+                                        senderIntent.putExtra("username",username);
+                                        startActivity(senderIntent);
                                         finish();
-                                    } else {
-                                        textViewError.setText(jsonObject.getString("message"));
+                                    }
+                                    else if (status.equals("relogin")) {
+                                        username = jsonObject.getString("TeacherName");
+                                        apikey = jsonObject.getString("apikey");
+                                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                                        editor.putString("logged", "true");
+                                        editor.putString("TeacherName", username);
+                                        editor.putString("apikey", apikey);
+                                        editor.apply();
+                                        Intent senderIntent= new Intent(getApplicationContext(), MainActivity.class);
+                                        senderIntent.putExtra("username",username);
+                                        startActivity(senderIntent);
+                                        finish();
+                                    }
+                                    else {
+                                        textViewError.setText(message);
                                         textViewError.setVisibility(View.VISIBLE);
                                     }
-                                } catch (JSONException e) {
-                                    textViewError.setText(R.string.error_while_logging_in);
-                                    textViewError.setVisibility(View.VISIBLE);
+                                }  catch (JSONException e) {
                                     e.printStackTrace();
+                                    textViewError.setText(getString(R.string.error_while_logging_in));
+                                    textViewError.setVisibility(View.VISIBLE);
                                 }
-                                progressBar.setVisibility(View.GONE);
                             }
                         },
                         new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
-                                textViewError.setText(R.string.error_while_logging_in);
+                                textViewError.setText(getString(R.string.error_while_logging_in));
                                 textViewError.setVisibility(View.VISIBLE);
                                 progressBar.setVisibility(View.GONE);
                             }
                         }) {
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String, String> params = new HashMap<>();
-                        params.put("username", username);
-                        params.put("password", password);
-                        return params;
+                    protected Map<String, String> getParams() {
+                        Map<String, String> paramV = new HashMap<>();
+                        paramV.put("TeacherName", username);
+                        paramV.put("TeacherPassword", password);
+                        return paramV;
                     }
                 };
-                queue.add(request);
+                queue.add(stringRequest);
             }
         });
     }
+
     private TextWatcher input_watcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {

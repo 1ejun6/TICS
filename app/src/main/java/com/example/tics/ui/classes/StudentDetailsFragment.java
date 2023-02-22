@@ -39,11 +39,17 @@ public class StudentDetailsFragment extends Fragment {
         // get student details using studentId
         classesViewModel.getStudentDetails(Integer.parseInt(studentId), student -> {
             if (student != null) {
-                TextView studentIdTextView = binding.StudentStudentID;
-                studentIdTextView.setText(String.valueOf(student.getStudentID()));
+                TextView StudentDetailsIdTextView = binding.StudentDetailsStudentID;
+                StudentDetailsIdTextView.setText(String.valueOf(student.getStudentID()));
 
-                TextView studentNameTextView = binding.StudentStudentName;
-                studentNameTextView.setText(student.getStudentName());
+                TextView StudentDetailsNameTextView = binding.StudentDetailsStudentName;
+                StudentDetailsNameTextView.setText(student.getStudentName());
+
+                TextView StudentDetailsParentNameTextView = binding.studentDetailsStudentParentName;
+                StudentDetailsParentNameTextView.setText(student.getStudentParentName());
+
+                TextView StudentDetailsParentNoTextView = binding.studentDetailsStudentParentNo;
+                StudentDetailsParentNoTextView.setText(student.getStudentParentNo());
             }
         });
     }
