@@ -4,14 +4,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ui.classes.StudentDetailsFragment">
+
 
     <ImageView
         android:id="@+id/imageView_HomeBackground"
         android:layout_width="395dp"
         android:layout_height="360dp"
         android:layout_centerInParent="true"
-        android:layout_marginBottom="480dp"
+        android:layout_marginBottom="492dp"
         android:src="@drawable/homebackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,72 +23,61 @@
         android:id="@+id/textView_StudentDetails_ParentDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="28dp"
-        android:text="Parent Details"
+        android:layout_marginTop="20dp"
+        android:text="Parents Contact"
         android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.246"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/StudentDetails_StudentName" />
 
     <TextView
         android:id="@+id/StudentDetails_StudentName"
-        android:layout_width="94dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="200dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="4dp"
         android:textColor="@color/white"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintHorizontal_bias="0.253"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_StudentDetailsStudent" />
 
     <TextView
-        android:id="@+id/studentDetails_StudentParentNo"
-        android:layout_width="117dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="104dp"
-        android:layout_marginEnd="80dp"
+        android:id="@+id/StudentDetails_StudentID"
+        android:layout_width="56dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="28dp"
         android:textColor="@color/white"
-        android:textSize="22sp"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/StudentDetails_StudentID" />
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/studentDetails_StudentParentName"
-        android:layout_width="105dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="104dp"
+        android:id="@+id/studentDetails_StudentParentDetails"
+        android:layout_width="329dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
         android:textColor="@color/white"
-        android:textSize="22sp"
-        app:layout_constraintEnd_toStartOf="@+id/studentDetails_StudentParentNo"
-        app:layout_constraintHorizontal_bias="0.169"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_StudentDetailsStudent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_StudentDetails_ParentDetails" />
 
     <TextView
         android:id="@+id/textView_StudentDetailsStudent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="28dp"
         android:text="Student-"
         android:textColor="@color/white"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/StudentDetails_StudentID"
-        android:layout_width="51dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="20dp"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        android:textSize="28sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

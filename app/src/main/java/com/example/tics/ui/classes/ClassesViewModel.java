@@ -103,8 +103,7 @@ public class ClassesViewModel extends AndroidViewModel {
                             String StudentName = response.getString("StudentName");
                             String StudentParentName = response.getString("StudentParentName");
                             String StudentParentNo = response.getString("StudentParentNo");
-
-                            Student student = new Student(StudentID, StudentName, StudentParentName, StudentParentNo);
+                            Student student = new Student(StudentID, StudentName, StudentParentName, StudentParentNo, null);
                             callback.onResult(student);
                         } catch (JSONException e) {
                             e.printStackTrace();

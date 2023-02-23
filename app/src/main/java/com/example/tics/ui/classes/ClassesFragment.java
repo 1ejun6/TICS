@@ -50,12 +50,13 @@ public class ClassesFragment extends Fragment {
                         studentAdapter = new StudentAdapter(getContext(), students, studentId -> {
                             Bundle bundle = new Bundle();
                             bundle.putString("studentId", studentId);
-                            NavHostFragment.findNavController(this).navigate(R.id.nav_studentdetails, bundle);
+                            NavHostFragment.findNavController(this).navigate(R.id.action_nav_classes_to_studentDetailsFragment, bundle);
                         });
                         studentRecyclerView.setAdapter(studentAdapter);
                     });
                 });
             }
+
             LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
             studentRecyclerView.setLayoutManager(layoutManager);
         });

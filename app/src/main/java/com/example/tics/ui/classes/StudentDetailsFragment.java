@@ -45,11 +45,8 @@ public class StudentDetailsFragment extends Fragment {
                 TextView StudentDetailsNameTextView = binding.StudentDetailsStudentName;
                 StudentDetailsNameTextView.setText(student.getStudentName());
 
-                TextView StudentDetailsParentNameTextView = binding.studentDetailsStudentParentName;
-                StudentDetailsParentNameTextView.setText(student.getStudentParentName());
-
-                TextView StudentDetailsParentNoTextView = binding.studentDetailsStudentParentNo;
-                StudentDetailsParentNoTextView.setText(student.getStudentParentNo());
+                TextView StudentDetailsParentNameTextView = binding.studentDetailsStudentParentDetails;
+                StudentDetailsParentNameTextView.setText(student.getStudentParentName()+"-  "+student.getStudentParentNo());
             }
         });
     }

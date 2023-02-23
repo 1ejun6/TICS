@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:elevation="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/studentcardbackground"
+        android:hapticFeedbackEnabled="true"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/Student_StudentIDClassName"
+            android:layout_width="328dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="17dp"
+            android:layout_marginEnd="0dp"
+            android:text="StudentIDClassName"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/StudentPhoto"
+            android:layout_width="94dp"
+            android:layout_height="98dp"
+            android:layout_below="@id/Student_StudentIDClassName"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/studentlist" />
+
+        <TextView
+            android:id="@+id/Student_StudentName"
+            android:layout_width="217dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Student_StudentIDClassName"
+            android:layout_toEndOf="@id/StudentPhoto"
+            android:paddingTop="8dp"
+            android:text="StudentName"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/Student_ParentName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Student_StudentName"
+            android:layout_toEndOf="@id/StudentPhoto"
+            android:paddingTop="10dp"
+            android:text="ParentName"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/Student_ParentNo"
+            android:layout_width="217dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Student_ParentName"
+            android:layout_marginStart="0dp"
+            android:layout_toEndOf="@id/StudentPhoto"
+            android:drawableLeft="@drawable/contact"
+            android:drawablePadding="10dp"
+            android:paddingTop="8dp"
+            android:text="ParentPhoneNo"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

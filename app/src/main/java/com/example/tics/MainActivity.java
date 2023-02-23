@@ -59,61 +59,60 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        int id = item.getItemId();
 
-        if (id == R.id.nav_classes) {
-            navController.navigate(R.id.nav_classes);
-        } else if (id == R.id.nav_students) {
-            navController.navigate(R.id.nav_students);
-        } else if (id == R.id.nav_medicalhistory) {
-            navController.navigate(R.id.nav_medicalhistory);
-        } else if (id == R.id.nav_game) {
-            navController.navigate(R.id.nav_game);
-        } else if (id == R.id.nav_profile) {
-            navController.navigate(R.id.nav_profile);
-        } else if (id == R.id.nav_signout) {
-            // log the user out
-            // ...
-
-            // go back to the Welcome.java class
-            Intent intent = new Intent(this, Welcome.class);
-            startActivity(intent);
-            finish(); // close the MainActivity
-            return true;
+        switch (id) {
+            case R.id.nav_classes:
+                navController.navigate(R.id.nav_classes);
+                break;
+            case R.id.nav_students:
+                navController.navigate(R.id.nav_students);
+                break;
+            case R.id.nav_medicalhistory:
+                navController.navigate(R.id.nav_medicalhistory);
+                break;
+            case R.id.nav_game:
+                navController.navigate(R.id.nav_game);
+                break;
+            case R.id.nav_profile:
+                navController.navigate(R.id.nav_profile);
+                break;
+            case R.id.nav_signout:
+                signOut();
+                break;
         }
 
-        DrawerLayout drawer = binding.drawerLayout;
-        drawer.closeDrawer(GravityCompat.START);
-
-        // Additional code to handle navigation to nav_classes from any page
-        if (navController.getCurrentDestination().getId() == R.id.nav_studentdetails && id == R.id.nav_classes) {
-            navController.navigate(R.id.action_nav_studentdetails_to_nav_classes);
-        }
-
+        DrawerLayout drawerLayout = binding.drawerLayout;
+        drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        return navController.navigateUp() || super.onSupportNavigateUp();
+        return NavigationUI.navigateUp(navController, mAppBarConfiguration) || super.onSupportNavigateUp();
     }
 
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+        } else if (navController.getCurrentDestination().getId() == R.id.nav_studentdetails) {
+            navController.navigate(R.id.action_nav_studentdetails_to_nav_classes);
         } else {
             super.onBackPressed();
         }
     }
 
+    private void signOut() {
+        // TODO: Implement sign out functionality
+    }
 }
-
