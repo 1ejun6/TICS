@@ -1,6 +1,7 @@
 package com.example.tics.ui.classes;
 
 import android.app.Application;
+import android.util.Base64;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -20,6 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -146,6 +148,40 @@ public class ClassesViewModel extends AndroidViewModel {
             }
         });
         queue.add(jsonObjectRequest);
+    }
+
+    public void getTic(int studentID, Callback<ArrayList<Tic>> callback) {
+        RequestQueue queue = Volley.newRequestQueue(getApplication());
+        String url = "http://192.168.1.14/tic.php?StudentID=" + studentID;
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        try {
+                            ArrayList<Tic> ticList = new ArrayList<>();
+                            for (int i = 0; i < response.length(); i++) {
+                                JSONObject ticJson = response.getJSONObject(i);
+                                int ticCount = ticJson.getInt("TicCount");
+                                String ticDate = ticJson.getString("TicDate");
+                                String ticTime = ticJson.getString("TicTime");
+                                byte[] picture = Base64.decode(ticJson.getString("Picture"), Base64.DEFAULT);
+                                Tic tic = new Tic(ticCount, ticDate, ticTime, picture);
+                                ticList.add(tic);
+                            }
+                            callback.onResult(ticList);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            callback.onResult(new ArrayList<>());
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+                callback.onResult(new ArrayList<>());
+            }
+        });
+        queue.add(jsonArrayRequest);
     }
 
     interface Callback<T> {

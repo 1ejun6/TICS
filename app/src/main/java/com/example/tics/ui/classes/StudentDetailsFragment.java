@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tics.R;
 import com.example.tics.databinding.FragmentStudentDetailsBinding;
@@ -71,6 +73,14 @@ public class StudentDetailsFragment extends Fragment {
                 }
             } else {
                 // handle case where ticCount is null
+            }
+        });
+
+        classesViewModel.getTic(Integer.parseInt(studentId), tics -> {
+            if (tics != null) {
+                RecyclerView recyclerView = binding.TicRecyclerView;
+                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                recyclerView.setAdapter(new TicAdapter(tics));
             }
         });
     }
