@@ -10,6 +10,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
@@ -19,7 +20,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
+
 public class ClassesViewModel extends AndroidViewModel {
 
     private ArrayList<String> classesList;
@@ -113,6 +118,31 @@ public class ClassesViewModel extends AndroidViewModel {
             @Override
             public void onErrorResponse(VolleyError error) {
                 callback.onResult(null);
+            }
+        });
+        queue.add(jsonObjectRequest);
+    }
+
+    public void getTicCount(int studentID, Callback<Integer> callback) {
+        RequestQueue queue = Volley.newRequestQueue(getApplication());
+        String url = "http://192.168.1.14/ticcount.php?StudentID=" + studentID;
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            int ticCount = response.getInt("TicCount");
+                            callback.onResult(ticCount);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            callback.onResult(0);
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+                callback.onResult(0);
             }
         });
         queue.add(jsonObjectRequest);

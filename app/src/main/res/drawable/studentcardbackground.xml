@@ -5,9 +5,9 @@
         android:type="radial"
         android:centerX="50%"
         android:centerY="50%"
-        android:gradientRadius="70%"
-        android:startColor="#387ae0"
-        android:endColor="#1b5bbf" />
+        android:gradientRadius="100%"
+        android:startColor="#5c9bed"
+        android:endColor="#3180e8" />
     <size
         android:width="400dp"
         android:height="150dp" />

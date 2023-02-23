@@ -15,6 +15,14 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.tics.R;
 import com.example.tics.databinding.FragmentStudentDetailsBinding;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class StudentDetailsFragment extends Fragment {
     private FragmentStudentDetailsBinding binding;
     private ClassesViewModel classesViewModel;
@@ -47,6 +55,22 @@ public class StudentDetailsFragment extends Fragment {
 
                 TextView StudentDetailsParentNameTextView = binding.studentDetailsStudentParentDetails;
                 StudentDetailsParentNameTextView.setText(student.getStudentParentName()+"-  "+student.getStudentParentNo());
+            }
+        });
+
+        classesViewModel.getTicCount(Integer.parseInt(studentId), ticCount -> {
+            String currentDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+            TextView studentDetailsTicCountTextView = binding.StudentDetailsTicCount;
+            TextView studentDetailsDateTextView = binding.StudentDetailsDate;
+            if (ticCount != null) {
+                studentDetailsTicCountTextView.setText(String.valueOf(ticCount));
+                studentDetailsDateTextView.setText(currentDate);
+
+                if (ticCount == 0) {
+                    studentDetailsDateTextView.setText(currentDate);
+                }
+            } else {
+                // handle case where ticCount is null
             }
         });
     }

@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/imageView_HomeBackground"
         android:layout_width="395dp"
-        android:layout_height="360dp"
+        android:layout_height="364dp"
         android:layout_centerInParent="true"
         android:layout_marginBottom="492dp"
         android:src="@drawable/homebackground"
@@ -59,13 +59,13 @@
 
     <TextView
         android:id="@+id/studentDetails_StudentParentDetails"
-        android:layout_width="329dp"
-        android:layout_height="32dp"
+        android:layout_width="290dp"
+        android:layout_height="33dp"
         android:layout_marginTop="8dp"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_StudentDetails_ParentDetails" />
 
@@ -80,5 +80,55 @@
         android:textSize="28sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="356dp"
+        android:layout_height="145dp"
+        android:layout_margin="12dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.411">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/studentcardbackground"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/StudentDetails_Date"
+                android:layout_width="327dp"
+                android:layout_height="wrap_content"
+                android:text="@{java.time.LocalDateTime.now().toString()}"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="35dp"
+                tools:layout_editor_absoluteY="237dp" />
+
+            <TextView
+                android:id="@+id/StudentDetails_TicCount"
+                android:layout_width="327dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center_horizontal"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="48sp"
+                tools:layout_editor_absoluteX="35dp"
+                tools:layout_editor_absoluteY="270dp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
