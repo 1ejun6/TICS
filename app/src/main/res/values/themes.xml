@@ -17,7 +17,7 @@
     </style>
 
     <style name="NavigationMenuItemStyle" parent="@android:style/TextAppearance.Widget.TextView">
-        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:font">@font/montserrat</item>
     </style>
 
     <style name="Theme.TICS.NoActionBar">

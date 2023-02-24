@@ -34,7 +34,7 @@ public class TicAdapter extends RecyclerView.Adapter<TicAdapter.TicViewHolder> {
     public void onBindViewHolder(@NonNull TicViewHolder holder, int position) {
         Tic tic = TicList.get(position);
 
-        holder.Tic_Count.setText(String.valueOf(tic.getTicCount()));
+        holder.Tic_Count.setText(String.valueOf(tic.getTicCount())+" TIC");
 
         holder.Tic_DateTime.setText(tic.getTicDate() + "-" + tic.getTicTime());
 

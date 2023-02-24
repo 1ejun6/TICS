@@ -1,13 +1,12 @@
 package com.example.tics;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -24,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        setSupportActionBar(binding.appBarMain.toolbar);
+        setSupportActionBar(binding.appBarMain.toolbar); // Add this line
 
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,17 +41,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         .setAction("Action", null).show();
             }
         });
-
-        // Initialize the navigation drawer toggle
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, binding.drawerLayout, binding.appBarMain.toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        binding.drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         navigationView.setNavigationItemSelectedListener(this);
 
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_profile, R.id.nav_classes, R.id.nav_students, R.id.nav_medicalhistory, R.id.nav_game)
                 .setOpenableLayout(drawer)
@@ -59,60 +54,48 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        sharedPreferences = getSharedPreferences("tics", MODE_PRIVATE); // initialize sharedPreferences
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         int id = item.getItemId();
 
-        switch (id) {
-            case R.id.nav_classes:
-                navController.navigate(R.id.nav_classes);
-                break;
-            case R.id.nav_students:
-                navController.navigate(R.id.nav_students);
-                break;
-            case R.id.nav_medicalhistory:
-                navController.navigate(R.id.nav_medicalhistory);
-                break;
-            case R.id.nav_game:
-                navController.navigate(R.id.nav_game);
-                break;
-            case R.id.nav_profile:
-                navController.navigate(R.id.nav_profile);
-                break;
-            case R.id.nav_signout:
-                signOut();
-                break;
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+
+        if (id == R.id.nav_classes) {
+            navController.navigate(R.id.nav_classes);
+        } else if (id == R.id.nav_students) {
+            navController.navigate(R.id.nav_students);
+        } else if (id == R.id.nav_medicalhistory) {
+            navController.navigate(R.id.nav_medicalhistory);
+        } else if (id == R.id.nav_game) {
+            navController.navigate(R.id.nav_game);
+        } else if (id == R.id.nav_profile) {
+            navController.navigate(R.id.nav_profile);
+        } else if (id == R.id.nav_signout) {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.clear();
+            editor.apply();
+            Intent intent = new Intent(this, Welcome.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // clear the activity stack
+            startActivity(intent);
+            finish(); // close the MainActivity
+            return true;
         }
 
-        DrawerLayout drawerLayout = binding.drawerLayout;
-        drawerLayout.closeDrawer(GravityCompat.START);
+        DrawerLayout drawer = binding.drawerLayout;
+        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration) || super.onSupportNavigateUp();
-    }
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else if (navController.getCurrentDestination().getId() == R.id.nav_studentdetails) {
-            navController.navigate(R.id.action_nav_studentdetails_to_nav_classes);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    private void signOut() {
-        // TODO: Implement sign out functionality
+        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
+                || super.onSupportNavigateUp();
     }
 }
