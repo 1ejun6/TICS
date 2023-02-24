@@ -24,7 +24,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Profile extends AppCompatActivity {
@@ -70,7 +69,7 @@ public class Profile extends AppCompatActivity {
                                 classIds.add(obj.getString("ClassID"));
                             }
                             ArrayAdapter<String> adapter = new ArrayAdapter<>(Profile.this,
-                                    android.R.layout.simple_dropdown_item_1line, classNames);
+                                    R.layout.item_classid, classNames);
                             classinput.setAdapter(adapter);
                         } catch (JSONException e) {
                             e.printStackTrace();
