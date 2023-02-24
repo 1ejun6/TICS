@@ -21,58 +21,75 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="356dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp"
+        android:layout_margin="16dp"
         app:cardCornerRadius="20dp"
-        app:cardUseCompatPadding="false"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView_HomeBackground"
         app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="139dp"
             android:background="@drawable/studentcardbackground"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:padding="16dp">
 
-            <TextView
-                android:id="@+id/MedicalHistory_ClassID"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+            <ImageView
+                android:id="@+id/imageView_StudentAvatar"
+                android:layout_width="82dp"
+                android:layout_height="101dp"
+                android:src="@drawable/studentlist" />
 
-            <TextView
-                android:id="@+id/MedicalHistory_StudentName"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_marginStart="16dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/MedicalHistory_StudentParentNameNo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/MedicalHistory_ClassID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/MedicalHistory_StudentName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/MedicalHistory_StudentParentNameNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:drawableLeft="@drawable/contact"
+                    android:drawablePadding="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
 
         </LinearLayout>
+
     </androidx.cardview.widget.CardView>
 
+
     <androidx.cardview.widget.CardView
-        android:layout_width="355dp"
-        android:layout_height="332dp"
+        android:layout_width="341dp"
+        android:layout_height="286dp"
         android:layout_margin="16dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="8dp"
@@ -84,10 +101,12 @@
 
         <TextView
             android:id="@+id/MedicalHistory_Description"
-            android:layout_width="match_parent"
-            android:layout_height="299dp"
+            android:layout_width="294dp"
+            android:layout_height="242dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
             android:padding="16dp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="18sp" />
     </androidx.cardview.widget.CardView>
 
@@ -119,7 +138,7 @@
             android:textColor="@color/white"
             android:textColorHighlight="@color/white"
             android:textColorHint="@color/white"
-            android:textSize="20sp" />
+            android:textSize="22sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

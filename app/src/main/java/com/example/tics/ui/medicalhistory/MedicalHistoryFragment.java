@@ -24,53 +24,94 @@ import com.example.tics.databinding.FragmentMedicalhistoryBinding;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 public class MedicalHistoryFragment extends Fragment {
 
     private FragmentMedicalhistoryBinding binding;
-    private AutoCompleteTextView StudentID;
-    private ArrayAdapter<String> mArrayAdapter;
+    private AutoCompleteTextView studentIdAutoCompleteTextView;
+    private ArrayAdapter<String> studentIdArrayAdapter;
+    private MedicalHistoryViewModel viewModel;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+    private TextView studentNameTextView;
+    private TextView studentParentNameNoTextView;
+    private TextView classIdTextView;
+    private TextView medicalHistoryDescriptionTextView;
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         binding = FragmentMedicalhistoryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        StudentID = binding.autoCompleteTextView;
+        studentIdAutoCompleteTextView = binding.autoCompleteTextView;
+        studentNameTextView = binding.MedicalHistoryStudentName;
+        studentParentNameNoTextView = binding.MedicalHistoryStudentParentNameNo;
+        classIdTextView = binding.MedicalHistoryClassID;
+        medicalHistoryDescriptionTextView = binding.MedicalHistoryDescription;
 
-        mArrayAdapter = new ArrayAdapter<>(getContext(),
-                R.layout.item_studentid, new ArrayList<String>());
+        studentIdArrayAdapter = new ArrayAdapter<>(getContext(),
+                R.layout.item_studentid, new ArrayList<>());
+        studentIdAutoCompleteTextView.setAdapter(studentIdArrayAdapter);
 
-        StudentID.setAdapter(mArrayAdapter);
+        viewModel = new ViewModelProvider(requireActivity()).get(MedicalHistoryViewModel.class);
+        viewModel.getSelectedStudentId().observe(getViewLifecycleOwner(), this::fetchMedicalHistoryData);
 
-        // Fetch data from server
-        String url = "http://192.168.1.14/medicalhistorystudentid.php";
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONArray jsonArray = new JSONArray(response);
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                String studentId = jsonArray.getString(i);
-                                mArrayAdapter.add(studentId);
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e("Volley", error.toString());
-            }
+        studentIdAutoCompleteTextView.setOnItemClickListener((parent, view, position, id) -> {
+            String selectedStudentId = studentIdArrayAdapter.getItem(position);
+            viewModel.setSelectedStudentId(selectedStudentId);
         });
 
-        Volley.newRequestQueue(getContext()).add(stringRequest);
+        fetchStudentIdData();
+
         return root;
+    }
+
+    private void fetchStudentIdData() {
+        String url = "http://192.168.1.14/medicalhistorystudentid.php";
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                response -> {
+                    try {
+                        JSONArray jsonArray = new JSONArray(response);
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            String studentId = jsonArray.getString(i);
+                            studentIdArrayAdapter.add(studentId);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                },
+                error -> Log.e("Volley", error.toString()));
+
+        Volley.newRequestQueue(getContext()).add(stringRequest);
+    }
+
+    private void fetchMedicalHistoryData(String studentId) {
+        String url = "http://192.168.1.14/medicalhistory.php?student_id=" + studentId;
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                response -> {
+                    try {
+                        JSONArray jsonArray = new JSONArray(response);
+                        JSONObject jsonObject = jsonArray.getJSONObject(0);
+                        String medicalHistoryDescription = jsonObject.getString("MedicalHistoryDesc");
+                        String studentName = jsonObject.getString("StudentName");
+                        String studentParentName = jsonObject.getString("StudentParentName");
+                        String studentParentNo = jsonObject.getString("StudentParentNo");
+                        String classId = jsonObject.getString("ClassID");
+
+                        medicalHistoryDescriptionTextView.setText(medicalHistoryDescription);
+                        studentNameTextView.setText(studentName);
+                        studentParentNameNoTextView.setText(studentParentName + " - " + studentParentNo);
+                        classIdTextView.setText(classId);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                },
+                error -> Log.e("Volley", error.toString()));
+
+        Volley.newRequestQueue(getContext()).add(stringRequest);
     }
 
     @Override
