@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:itemTextAppearance="@style/NavigationMenuItemStyle"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
@@ -26,18 +25,12 @@
             android:id="@+id/nav_game"
             android:icon="@drawable/game"
             android:title="@string/menu_game" />
-        <item
-            android:title=" " />
-        <item
-            android:title=" " />
-        <item
-            android:title=" " />
-        <item
-            android:title=" " />
-        <item
-            android:title=" " />
-        <item
-            android:title=" " />
+        <item android:title=" " />
+        <item android:title=" " />
+        <item android:title=" " />
+        <item android:title=" " />
+        <item android:title=" " />
+        <item android:title=" " />
         <item
             android:id="@+id/nav_signout"
             android:icon="@drawable/logout"
