@@ -16,5 +16,6 @@
     <string name="menu_logout">Log out</string>
 
     <string name="error_while_logging_in">Error while logging in</string>
+    <string name="notificationchannelid">TICS</string>
 
 </resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "475533578004",
+    "project_id": "tics-c8c06",
+    "storage_bucket": "tics-c8c06.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:475533578004:android:1d16611e457e01256e7c01",
+        "android_client_info": {
+          "package_name": "com.example.tics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "475533578004-pnjbbhsjm36qmrd4i7777d3r4nb7aj8o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUEs-G7XXtbtgppptNX9pAZs1K8XCVBoU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "475533578004-pnjbbhsjm36qmrd4i7777d3r4nb7aj8o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
