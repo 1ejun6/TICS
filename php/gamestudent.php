@@ -2,12 +2,11 @@
 require "conn.php";
 
 // Get the student ID from the query string
-$StudentID = $_GET['StudentID'];
+$studentId = $_GET['StudentID'];
 
 // Build the SQL query to retrieve the data
-$sql = "SELECT s.StudentName, s.StudentParentName, s.StudentParentNo, s.ClassID, m.MedicalHistoryDesc FROM students s
-        JOIN medicalhistory m ON s.StudentID = m.StudentID
-        WHERE s.StudentID = '$StudentID'";
+$sql = "SELECT s.StudentName, s.StudentParentName, s.StudentParentNo, s.ClassID FROM students s
+        WHERE s.StudentID = '$studentId'";
 
 // Execute the query
 $result = mysqli_query($conn, $sql);
@@ -22,7 +21,7 @@ if (mysqli_num_rows($result) > 0) {
     echo json_encode($rows);
 } else {
     // Output an error message if no results were found
-    echo "No data found for student ID $StudentID";
+    echo "No data found for student ID $studentId";
 }
 
 // Close the database connection

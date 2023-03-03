@@ -46,7 +46,7 @@ if ($conn) {
 		} else
 			$result = array("status" => "failed", "message" => "Wrong Username or Password! Try Again!");
 	} else
-		$result = array("status" => "failed", "message" => "no results");
+		$result = array("status" => "failed", "message" => "There is no such user");
 } else
 	$result = array("status" => "failed", "message" => "database connection failed");
 echo json_encode($result, JSON_PRETTY_PRINT);

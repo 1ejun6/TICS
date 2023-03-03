@@ -26,7 +26,7 @@ public class TicAdapter extends RecyclerView.Adapter<TicAdapter.TicViewHolder> {
     @NonNull
     @Override
     public TicViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.tic_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_tic, parent, false);
         return new TicViewHolder(view);
     }
 

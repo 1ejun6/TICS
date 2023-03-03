@@ -1,19 +1,12 @@
 package com.example.tics.ui.game;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class GameViewModel extends ViewModel {
+    private MutableLiveData<String> selectedStudentId = new MutableLiveData<>();
 
-    private final MutableLiveData<String> mText;
-
-    public GameViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is game fragment");
-    }
-
-    public LiveData<String> getText() {
-        return mText;
+    public void setSelectedStudentId(String studentId) {
+        selectedStudentId.setValue(studentId);
     }
 }

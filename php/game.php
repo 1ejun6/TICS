@@ -5,8 +5,8 @@ require "conn.php";
 $StudentID = $_GET['StudentID'];
 
 // Build the SQL query to retrieve the data
-$sql = "SELECT s.StudentName, s.StudentParentName, s.StudentParentNo, s.ClassID, m.MedicalHistoryDesc FROM students s
-        JOIN medicalhistory m ON s.StudentID = m.StudentID
+$sql = "SELECT g.GameID, g.GameDate, g.GameStartTime, g.GameEndTime, g.GameTicCount FROM students s
+        JOIN game g ON s.StudentID = g.StudentID
         WHERE s.StudentID = '$StudentID'";
 
 // Execute the query
