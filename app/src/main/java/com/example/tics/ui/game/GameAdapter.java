@@ -32,10 +32,9 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Game game = gameList.get(position);
-        holder.gameIDTextView.setText(game.getGameID());
-        holder.gameDateTextView.setText(game.getGameDate());
-        holder.gameStartTimeTextView.setText(game.getGameStartTime());
-        holder.gameEndTimeTextView.setText(game.getGameEndTime());
+        holder.gameIDTextView.setText("GameID: "+game.getGameID());
+        holder.gameDateTextView.setText("Date: "+game.getGameDate());
+        holder.gameStartEndTimeTextView.setText(game.getGameStartTime()+"-"+game.getGameEndTime());
         holder.gameTicCountTextView.setText(String.valueOf(game.getGameTicCount()));
     }
 
@@ -47,16 +46,14 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private TextView gameIDTextView;
         private TextView gameDateTextView;
-        private TextView gameStartTimeTextView;
-        private TextView gameEndTimeTextView;
+        private TextView gameStartEndTimeTextView;
         private TextView gameTicCountTextView;
 
         public ViewHolder(View itemView) {
             super(itemView);
             gameIDTextView = itemView.findViewById(R.id.GameID);
             gameDateTextView = itemView.findViewById(R.id.GameDate);
-            gameStartTimeTextView = itemView.findViewById(R.id.GameStartTime);
-            gameEndTimeTextView = itemView.findViewById(R.id.GameEndTime);
+            gameStartEndTimeTextView = itemView.findViewById(R.id.GameStartEndTime);
             gameTicCountTextView = itemView.findViewById(R.id.GameTicCount);
         }
     }

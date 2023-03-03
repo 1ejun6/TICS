@@ -31,8 +31,8 @@
             <TextView
                 android:id="@+id/GameTicCount"
                 android:layout_width="match_parent"
-                android:layout_height="143dp"
-                android:gravity="center_horizontal"
+                android:layout_height="85dp"
+                android:gravity="center"
                 android:textSize="24sp" />
 
         </LinearLayout>
@@ -45,53 +45,29 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/GameIDLabel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Game ID"
-                android:textSize="16sp"/>
-
-            <TextView
                 android:id="@+id/GameID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/GameDateLabel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Game Date"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:layout_marginTop="8dp" />
 
             <TextView
                 android:id="@+id/GameDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:layout_marginTop="8dp" />
 
             <TextView
-                android:id="@+id/GameStartTimeLabel"
+                android:id="@+id/GameStartEndTimeLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Start Time"
-                android:textSize="16sp" />
+                android:text="Start-End Time"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp" />
 
             <TextView
-                android:id="@+id/GameStartTime"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/GameEndTimeLabel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="End Time"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/GameEndTime"
+                android:id="@+id/GameStartEndTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp" />

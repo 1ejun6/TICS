@@ -98,16 +98,22 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView"
         app:layout_constraintVertical_bias="0.13999999">
 
-        <TextView
-            android:id="@+id/MedicalHistory_Description"
-            android:layout_width="294dp"
-            android:layout_height="242dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:padding="16dp"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
+        <ScrollView
+            android:layout_width="322dp"
+            android:layout_height="266dp">
+
+            <TextView
+                android:id="@+id/MedicalHistory_Description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:padding="16dp"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+        </ScrollView>
     </androidx.cardview.widget.CardView>
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/MedicalHistory_StudentLayout"
