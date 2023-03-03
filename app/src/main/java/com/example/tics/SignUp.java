@@ -33,7 +33,7 @@ public class SignUp extends AppCompatActivity {
                 String password = editPassword.getText().toString();
                 String email= "";
                 String classID= "";
-                String url = "http://192.168.1.14/signup.php";
+                String url = IP.BASE_URL+"signup.php";
                 String type = "signup";
                 BackgroundWorker backgroundWorker = new BackgroundWorker(SignUp.this);
                 backgroundWorker.execute(url, type, username, password, email, classID);

@@ -15,6 +15,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.tics.IP;
 import com.example.tics.Student;
 
 import org.json.JSONArray;
@@ -40,7 +41,7 @@ public class ClassesViewModel extends AndroidViewModel {
         classesList = new ArrayList<>();
 
         RequestQueue queue = Volley.newRequestQueue(getApplication());
-        String url = "http://192.168.1.14/class.php";
+        String url = IP.BASE_URL+"class.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
@@ -71,7 +72,7 @@ public class ClassesViewModel extends AndroidViewModel {
     public void getStudentsForClass(String className, Callback<ArrayList<String>> callback) {
         studentsList = new ArrayList<>();
         RequestQueue queue = Volley.newRequestQueue(getApplication());
-        String url = "http://192.168.1.14/students.php?className=" + className;
+        String url = IP.BASE_URL+"students.php?className=" + className;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
@@ -101,7 +102,7 @@ public class ClassesViewModel extends AndroidViewModel {
     public void getStudentDetails(int StudentID, Callback<Student> callback) {
         RequestQueue queue = Volley.newRequestQueue(getApplication());
         Log.d("URLStudentID", String.valueOf(StudentID));
-        String url = "http://192.168.1.14/studentdetails.php?StudentID=" + StudentID;
+        String url = IP.BASE_URL+"studentdetails.php?StudentID=" + StudentID;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -127,7 +128,7 @@ public class ClassesViewModel extends AndroidViewModel {
 
     public void getTicCount(int studentID, Callback<Integer> callback) {
         RequestQueue queue = Volley.newRequestQueue(getApplication());
-        String url = "http://192.168.1.14/ticcount.php?StudentID=" + studentID;
+        String url = IP.BASE_URL+"ticcount.php?StudentID=" + studentID;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -152,7 +153,7 @@ public class ClassesViewModel extends AndroidViewModel {
 
     public void getTic(int studentID, Callback<ArrayList<Tic>> callback) {
         RequestQueue queue = Volley.newRequestQueue(getApplication());
-        String url = "http://192.168.1.14/tic.php?StudentID=" + studentID;
+        String url = IP.BASE_URL+"tic.php?StudentID=" + studentID;
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
                     @Override

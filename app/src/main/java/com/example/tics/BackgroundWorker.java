@@ -20,7 +20,6 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
 
     public BackgroundWorker(Context context){
         this.context = context;
-
     }
 
     @Override

@@ -40,6 +40,11 @@
         tools:layout="@layout/fragment_game" />
 
     <fragment
+        android:id="@+id/nav_drawing"
+        android:name="com.example.tics.ui.drawing.DrawingFragment"
+        android:label="@string/menu_drawing"
+        tools:layout="@layout/fragment_drawing" />
+    <fragment
         android:id="@+id/nav_studentdetails"
         android:name="com.example.tics.ui.classes.StudentDetailsFragment"
         android:label="@string/menu_studentdetails"

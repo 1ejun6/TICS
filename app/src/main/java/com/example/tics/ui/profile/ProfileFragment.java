@@ -23,6 +23,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.tics.IP;
 import com.example.tics.R;
 import com.example.tics.databinding.FragmentProfileBinding;
 
@@ -53,7 +54,7 @@ public class ProfileFragment extends Fragment {
             Log.d("ProfileFragment", "API key: " + apikey);
 
             // get teacher information
-            String url = "http://192.168.1.14/teacher.php?TeacherName=" + teacherName;
+            String url = IP.BASE_URL+"teacher.php?TeacherName=" + teacherName;
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                     new Response.Listener<JSONObject>() {
                         @Override

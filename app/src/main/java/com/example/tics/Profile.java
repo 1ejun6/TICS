@@ -51,7 +51,7 @@ public class Profile extends AppCompatActivity {
 
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://192.168.1.14/class.php";
+        String url = IP.BASE_URL+"class.php";
 
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -92,7 +92,7 @@ public class Profile extends AppCompatActivity {
                 String email = emailinput.getText().toString();
                 String selectedClassName = classinput.getText().toString();
                 String password = "";
-                String url = "http://192.168.1.14/profile.php";
+                String url = IP.BASE_URL+"profile.php";
                 String type = "update";
                 // Get the ID for the selected class
                 String selectedClassId = classIds.get(classNames.indexOf(selectedClassName));

@@ -10,6 +10,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.tics.IP;
 import com.example.tics.Student;
 
 import org.json.JSONException;
@@ -30,7 +31,7 @@ public class StudentsViewModel extends ViewModel {
     }
 
     public void fetchStudentsList(Context context) { // add Context parameter
-        String url = "http://192.168.1.14/studentlist.php";
+        String url = IP.BASE_URL+"studentlist.php";
 
         RequestQueue queue = Volley.newRequestQueue(context);
 

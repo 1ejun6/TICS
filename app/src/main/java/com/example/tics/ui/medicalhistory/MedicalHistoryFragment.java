@@ -18,6 +18,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.tics.IP;
 import com.example.tics.R;
 import com.example.tics.Student;
 import com.example.tics.databinding.FragmentMedicalhistoryBinding;
@@ -70,7 +71,7 @@ public class MedicalHistoryFragment extends Fragment {
     }
 
     private void fetchStudentIdData() {
-        String url = "http://192.168.1.14/medicalhistorystudentid.php";
+        String url = IP.BASE_URL+"medicalhistorystudentid.php";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 response -> {
                     try {
@@ -89,7 +90,7 @@ public class MedicalHistoryFragment extends Fragment {
     }
 
     private void fetchMedicalHistoryData(String studentId) {
-        String url = "http://192.168.1.14/medicalhistory.php?student_id=" + studentId;
+        String url = IP.BASE_URL+studentId;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 response -> {
                     try {

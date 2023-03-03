@@ -16,7 +16,8 @@
         <item name="android:fontFamily">@font/montserrat</item>
     </style>
 
-    <style name="NavigationMenuItemStyle" parent="@android:style/TextAppearance.Widget.TextView">
+    <style name="NavigationMenuItemStyle" parent="@style/Widget.MaterialComponents.NavigationView">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Subhead</item>
         <item name="android:fontFamily">@font/montserrat</item>
     </style>
 
