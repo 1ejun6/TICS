@@ -77,8 +77,8 @@ public class MedicalHistoryFragment extends Fragment {
                     try {
                         JSONArray jsonArray = new JSONArray(response);
                         for (int i = 0; i < jsonArray.length(); i++) {
-                            String studentId = jsonArray.getString(i);
-                            studentIdArrayAdapter.add(studentId);
+                            String StudentID = jsonArray.getString(i);
+                            studentIdArrayAdapter.add(StudentID);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -89,8 +89,8 @@ public class MedicalHistoryFragment extends Fragment {
         Volley.newRequestQueue(getContext()).add(stringRequest);
     }
 
-    private void fetchMedicalHistoryData(String studentId) {
-        String url = IP.BASE_URL+studentId;
+    private void fetchMedicalHistoryData(String StudentID) {
+        String url = IP.BASE_URL+"medicalhistory.php?StudentID=" + StudentID;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 response -> {
                     try {
