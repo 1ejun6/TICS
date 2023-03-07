@@ -66,7 +66,6 @@ public class ProfileFragment extends Fragment {
                                 String teacherEmail = response.getString("TeacherEmail");
                                 String teacherPassword = response.getString("TeacherPassword");
                                 int classID = response.getInt("ClassID");
-                                Log.d("ProfileFragment", "Result: "+teacherID+teacherName+teacherEmail+teacherPassword+classID);
 
                                 // display teacher information
                                 TextView teacherIdTextView = root.findViewById(R.id.Teacher_ID);
