@@ -2,7 +2,9 @@ package com.example.tics;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -18,6 +20,14 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.tics.databinding.ActivityMainBinding;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+
+import java.io.IOException;
+
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -37,8 +47,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Teacher Profile", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                new SendMessageTask().execute(); // call the AsyncTask
             }
         });
         DrawerLayout drawer = binding.drawerLayout;
@@ -57,6 +66,37 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
         sharedPreferences = getSharedPreferences("tics", MODE_PRIVATE); // initialize sharedPreferences
+    }
+
+    // define the AsyncTask
+    private class SendMessageTask extends AsyncTask<Void, Void, String> {
+        @Override
+        protected String doInBackground(Void... voids) {
+            OkHttpClient client = new OkHttpClient();
+            RequestBody formBody = new FormBody.Builder()
+                    .add("message", "You can start to use the recreational game and drawing activities") // Use the correct field name
+                    .build();
+            Request request = new Request.Builder()
+                    .url("http://172.20.10.10:5001/notify") // Replace with the IP address or domain name of your Flask app
+                    .post(formBody)
+                    .build();
+            try {
+                Response response = client.newCall(request).execute();
+                return response.body().string();
+            } catch (IOException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            if (result != null) {
+                Log.d("Notification", result);
+            } else {
+                Log.e("Notification", "Failed to send message");
+            }
+        }
     }
 
     @Override
