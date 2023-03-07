@@ -33,6 +33,8 @@
         <item android:title=" " />
         <item android:title=" " />
         <item android:title=" " />
+        <item android:title=" " />
+        <item android:title=" " />
         <item
             android:id="@+id/nav_signout"
             android:icon="@drawable/logout"

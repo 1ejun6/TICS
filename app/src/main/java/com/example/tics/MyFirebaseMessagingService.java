@@ -41,9 +41,11 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         String channelId = getString(R.string.notificationchannelid);
         NotificationCompat.Builder notificationBuilder =
                 new NotificationCompat.Builder(this, channelId)
-                        .setSmallIcon(R.drawable.info)
+                        .setSmallIcon(R.drawable.notification)
                         .setContentTitle("TICS")
                         .setContentText(messageBody)
+                        .setPriority(NotificationCompat.PRIORITY_HIGH)
+                        .setCategory(NotificationCompat.CATEGORY_MESSAGE)
                         .setAutoCancel(true)
                         .setContentIntent(pendingIntent);
 

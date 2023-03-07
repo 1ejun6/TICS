@@ -8,13 +8,13 @@
 
     <ImageButton
         android:id="@+id/Success_SignIn"
-        android:layout_width="306dp"
-        android:layout_height="88dp"
+        android:layout_width="352dp"
+        android:layout_height="107dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="47dp"
-        android:layout_marginBottom="97dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="123dp"
         android:background="@drawable/signin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="451dp"
         android:layout_above="@+id/Success_SignIn"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="62dp"
         app:srcCompat="@drawable/success" />
 
 

@@ -10,38 +10,37 @@
 
     <ImageView
         android:id="@+id/imageView_HomeBackground"
-        android:layout_width="393dp"
-        android:layout_height="315dp"
+        android:layout_width="429dp"
+        android:layout_height="291dp"
         android:layout_centerInParent="true"
-        android:layout_marginBottom="532dp"
+        android:layout_marginBottom="584dp"
         android:src="@drawable/homebackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/StudentDetails_StudentName"
         android:layout_width="200dp"
         android:layout_height="32dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.269"
+        app:layout_constraintHorizontal_bias="0.284"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_StudentDetailsStudent" />
 
     <TextView
         android:id="@+id/StudentDetails_StudentID"
-        android:layout_width="39dp"
-        android:layout_height="31dp"
+        android:layout_width="57dp"
+        android:layout_height="40dp"
         android:layout_marginStart="48dp"
         android:layout_marginTop="28dp"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.388"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,21 +50,21 @@
         android:layout_height="33dp"
         android:layout_marginTop="8dp"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_StudentDetails_ParentDetails" />
 
     <TextView
         android:id="@+id/textView_StudentDetailsStudent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="28dp"
         android:text="Student-"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -73,12 +72,12 @@
         android:id="@+id/textView_StudentDetails_ParentDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:text="Parents Contact"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.261"
+        app:layout_constraintHorizontal_bias="0.287"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/StudentDetails_StudentName" />
 
@@ -91,10 +90,10 @@
         app:cardUseCompatPadding="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView_HomeBackground"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.054">
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -152,10 +151,9 @@
         android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.703"
         tools:listitem="@layout/item_tic" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

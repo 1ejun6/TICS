@@ -9,14 +9,13 @@
 
     <ImageView
         android:id="@+id/imageView_HomeBackground"
-        android:layout_width="393dp"
-        android:layout_height="315dp"
+        android:layout_width="413dp"
+        android:layout_height="409dp"
         android:layout_centerInParent="true"
-        android:layout_marginBottom="576dp"
+        android:layout_marginBottom="600dp"
         android:src="@drawable/homebackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.cardview.widget.CardView
@@ -30,8 +29,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView_HomeBackground"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.301">
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -87,8 +86,8 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="341dp"
-        android:layout_height="286dp"
+        android:layout_width="349dp"
+        android:layout_height="367dp"
         android:layout_margin="16dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="8dp"
@@ -99,15 +98,15 @@
         app:layout_constraintVertical_bias="0.13999999">
 
         <ScrollView
-            android:layout_width="322dp"
-            android:layout_height="266dp">
+            android:layout_width="332dp"
+            android:layout_height="349dp">
 
             <TextView
                 android:id="@+id/MedicalHistory_Description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
                 android:padding="16dp"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
